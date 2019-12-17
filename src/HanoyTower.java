@@ -6,7 +6,7 @@ import java.util.List;
 public class HanoyTower {
 
 
-    public static final int N = 5;
+    public static final int N = 4;
     public static int countOfMoves = 0;
 
     public static void main(String[] args) {
@@ -77,7 +77,7 @@ public class HanoyTower {
 
 
     private static void moveCycle(List<Deque<Integer>> towers, int sourceStackSizeToMove, int sourcePoleIdx, int targetPoleIdx) {
-        int[][] opers = new int[][]{{0, 1}, {0, 2}, {1, 2}};
+        int[][] opers = sourceStackSizeToMove % 2 == 0 ? new int[][]{{0, 1}, {0, 2}, {1, 2}} : new int[][]{{0, 2}, {0, 1}, {1, 2}};
         int idx = 0;
         while (towers.get(targetPoleIdx).size() < sourceStackSizeToMove) {
             move(towers, opers[idx][0], opers[idx][1]);
